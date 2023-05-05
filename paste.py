@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#python -m PyInstaller -F -w *.py
+#python -m PyInstaller -F *.py
 from time import sleep
 from pynput.keyboard import Controller
 import win32clipboard as wcd
@@ -9,11 +9,11 @@ def get_text():
     wcd.OpenClipboard()
     try:
         contents = wcd.GetClipboardData(win32con.CF_TEXT)
-        legal = 1
+        flag = 1
     except:
-        legal = 0
+        flag = 0
     wcd.CloseClipboard()
-    if legal == 1:
+    if flag == 1:
          return contents.decode('GBK')
     else:
          return '<ContentsERROR>'
